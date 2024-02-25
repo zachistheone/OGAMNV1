@@ -6,8 +6,11 @@ from discord.ext import commands
 from random import randint
 from discord import Interaction
 import random
+import json
 
 client = commands.Bot(command_prefix=";", intents=discord.Intents.all())
+privat = open("./private.json", "r").read()
+private = json.loads(privat)
 
 @client.event
 async def on_ready():
@@ -86,4 +89,4 @@ async def fortnitebot(ctx):
 
 
 
-client.run("MTIxMDg1MDg3NTE5MTQ1OTg0MQ.GCziiZ.kSwonaKqTOU5b2ovcW0nNr40rifRNVgcE9QrVY")
+client.run(str(private["token"]))
